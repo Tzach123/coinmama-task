@@ -1,0 +1,19 @@
+.card {
+  border: 1px solid darkgray;
+  border-radius: 5px;
+  margin: 16px 0;
+}
+
+.card-header {
+  display: flex;
+  background-color: #333;
+  color: white;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.card-header img {
+  width: 20%;
+  height: 20%;
+  margin: 8px;
+}

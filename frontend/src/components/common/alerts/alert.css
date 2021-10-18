@@ -1,0 +1,7 @@
+.alert {
+  border: 1px solid #333;
+  font-weight: bold;
+  display: inline-block;
+  padding: 8px;
+  margin: 8px;
+}

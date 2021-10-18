@@ -1,0 +1,42 @@
+.crypto-box {
+  display: flex;
+  background-color: aliceblue;
+}
+
+.crypto-description {
+  flex: 1;
+  padding: 8px;
+}
+
+.crypto-details-list {
+  flex: 2;
+  padding: 12px 0;
+}
+
+.crypto-detail {
+  margin: 8px 0;
+}
+
+.crypto-detail span {
+  margin-right: 4px;
+}
+
+.indicates-percent-div {
+  position: relative;
+  display: inline-block;
+}
+
+.indicates-percent-div span {
+  margin-left: 16px;
+}
+
+h3 {
+  display: block;
+}
+
+@media (max-width: 500px) {
+  .crypto-box {
+    text-align: center;
+    flex-direction: column;
+  }
+}

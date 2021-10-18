@@ -1,0 +1,47 @@
+.charts {
+  display: flex;
+  width: 100%;
+  padding: 16px 0;
+  margin: auto;
+  justify-content: center;
+}
+
+.chart {
+  width: auto !important;
+  height: auto !important;
+}
+
+.chart .recharts-wrapper {
+  width: auto !important;
+  height: auto !important;
+}
+
+.chart svg {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.recharts-text {
+  font-size: 70%;
+  font-weight: bold;
+}
+
+@media (max-width: 700px) {
+  .statistics {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .charts {
+    flex-direction: column;
+  }
+
+  .chart {
+    width: 100vw;
+  }
+
+  .chart svg {
+    width: 70vw;
+    height: auto;
+  }
+}

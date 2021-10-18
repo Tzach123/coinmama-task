@@ -1,0 +1,6 @@
+.cryptoList {
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+  margin-bottom: 16px;
+}

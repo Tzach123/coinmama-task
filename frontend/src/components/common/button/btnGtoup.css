@@ -1,0 +1,26 @@
+.btn-group {
+  display: flex;
+  justify-content: center;
+}
+.btn-group button {
+  display: inline-block;
+  background: #fff;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  color: #000;
+  cursor: pointer;
+}
+
+.btn-group .active {
+  color: white;
+  background: #04aa6d !important;
+}
+
+@media (max-width: 900px) {
+  .btn-group {
+    display: inline-block;
+    vertical-align: middle;
+    margin: auto;
+  }
+}
