@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getCryptoList } from '../actions/cryptoCompareActions'
 import { createCryptoRate } from '../actions/cryptoAction'
 import { TIME_TO_FETCH } from '../constant/cryptoConstant'
@@ -42,9 +42,9 @@ export const useFetchCryptoList = () => {
   // create list of crypto rate to DB
   const createCryptoRateList = (cryptoList) => {
     console.log('DB update')
-    /*  cryptoList.map((crypto) => {
+    cryptoList.map((crypto) => {
       createCryptoRate(crypto)
-    }) */
+    })
   }
 
   return [cryptoList, updatedDateTime, error]

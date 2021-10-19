@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { ERROR_COLOR, ERROR_BACKGROUND_COLOR, ERROR_BORDER_COLOR } from '../../constant/alertColorConstant'
 import useFetchCryptoList from '../../hooks/useFetchCryptoList'
 import CryptoCardsList from '../../components/domain/cryptoCardsList/CryptoCardsList'

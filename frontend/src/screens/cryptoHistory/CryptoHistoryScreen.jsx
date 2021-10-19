@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { MINUTE, DAILY, HOURLY, ONE_HOUR, ONE_DAY, ONE_WEEK, ONE_MOUNTH, THREE_MOUNTH, SIX_MOUNTH, ONE_YEAR, THREE_YEAR, FIVE_YEAR } from '../../constant/perHistoryTimeConstant'
 import { SYMBOL_CRYPTO_ARRAY } from '../../constant/cryptoConstant'
 import { ERROR_COLOR, ERROR_BACKGROUND_COLOR, ERROR_BORDER_COLOR, INFO_COLOR, INFO_BACKGROUND_COLOR, INFO_BORDER_COLOR } from '../../constant/alertColorConstant'
@@ -7,70 +7,16 @@ import BtnGtoup from '../../components/common/button/BtnGtoup'
 import Button from '../../components/common/button/Button'
 import Loader from '../../components/common/loader/Loader'
 import Alert from '../../components/common/alerts/Alert'
-import { getCryptoMinuteHistory, getCryptoHourlyHistory, getCryptoDailyHistory } from '../../actions/cryptoCompareActions'
 import { nameOrderBySymbol } from '../../utils/cryptoUtils'
+
+import useFetchHistoryCrypto from '../../hooks/useFetchHistoryCrypto'
 
 
 
 const CryptoHistoryScreen = ({ history, match }) => {
 
     const symbol = match.params.symbol
-
-    const [limit, setLimit] = useState(ONE_DAY)
-    const [per, setPer] = useState(MINUTE)
-    const [cryptoHistory, setCryptoHistory] = useState(null)
-    const [error, setError] = useState('')
-
-
-    useEffect(() => {
-        setCryptoHistory(null)
-        getCryptoHistory()
-    }, [symbol, limit, per])
-
-
-    const getCryptoHistory = () => {
-        switch (per) {
-            case MINUTE:
-                getCryptoMinuteHistory(symbol, limit).then(
-                    ({ Data, error }) => {
-                        if (error) {
-                            setError(error)
-                        } else {
-                            setCryptoHistory(Data)
-                        }
-                    }).catch(e => {
-                        console.log(e);
-                        setError(e)
-                    })
-                break;
-            case HOURLY:
-                getCryptoHourlyHistory(symbol, limit).then(
-                    ({ Data, error }) => {
-                        if (error) {
-                            setError(error)
-                        } else {
-                            setCryptoHistory(Data)
-                        }
-                    }).catch(e => {
-                        console.log(e);
-                        setError(e)
-                    })
-                break;
-            case DAILY:
-                getCryptoDailyHistory(symbol, limit).then(
-                    ({ Data, error }) => {
-                        if (error) {
-                            setError(error)
-                        } else {
-                            setCryptoHistory(Data)
-                        }
-                    }).catch(e => {
-                        console.log(e);
-                        setError(e)
-                    })
-                break;
-        }
-    }
+    const [limit, cryptoHistory, error, setLimit, setPer] = useFetchHistoryCrypto(symbol)
 
     const clickTarget = (e, newLimit, perTime) => {
         const activeEle = document.querySelector('.btn-group .active')
